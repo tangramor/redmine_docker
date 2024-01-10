@@ -71,4 +71,4 @@ COPY start.sh /start.sh
 EXPOSE 443 80
 
 USER root
-CMD ["/bin/bash", "-c", "/opt/nginx/sbin/nginx -c /opt/nginx/conf/nginx.conf;/start.sh;tail -f /opt/nginx/logs/*.log"]
+CMD ["/bin/bash", "-c", "/opt/nginx/sbin/nginx -c /opt/nginx/conf/nginx.conf;chmod +x /start.sh && /start.sh;tail -f /opt/nginx/logs/*.log"]

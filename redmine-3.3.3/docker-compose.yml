@@ -30,7 +30,7 @@ services:
     command: --innodb-large-prefix=ON --innodb-file-format=Barracuda
     volumes:
       - './initial.sql:/docker-entrypoint-initdb.d/initial.sql:ro'
-      - '/home/redmine/mysql56_data:/var/lib/mysql'
+      - '/home/mysql56_data:/var/lib/mysql'
       - '/etc/localtime:/etc/localtime'
     networks:
       - redmine
