@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  redmine:
+    image: tangramor/redmine:3.3.3
+    container_name: redmine
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - './config:/var/www/html/redmine/config'
+      - '/home/redmine/public/system/rich:/var/www/html/redmine/public/system/rich'
+      - '/home/redmine/plugins:/var/www/html/redmine/plugins'
+      - '/home/redmine/files:/var/www/html/redmine/files'
+      - '/home/redmine/log:/opt/nginx/logs'
+      - '/home/redmine/log:/var/www/html/redmine/log'
+      - '/etc/localtime:/etc/localtime'
+    networks:
+      - redmine
+    depends_on:
+      - mysql
+
+  mysql:
+    image: 'mysql:5.6'
+    container_name: redmine_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: 'Password1'
+    command: --innodb-large-prefix=ON --innodb-file-format=Barracuda
+    volumes:
+      - './initial.sql:/docker-entrypoint-initdb.d/initial.sql:ro'
+      - '/home/redmine/mysql56_data:/var/lib/mysql'
+      - '/etc/localtime:/etc/localtime'
+    networks:
+      - redmine
+    ports:
+      - '3306:3306'
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping"]
+
+networks:
+  redmine:
+    driver: bridge
