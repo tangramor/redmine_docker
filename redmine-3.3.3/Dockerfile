@@ -1,5 +1,8 @@
 FROM centos:7
 
+LABEL org.opencontainers.image.authors="Wang Junhua(tangramor@gmail.com)"
+LABEL org.opencontainers.image.url="https://www.github.com/tangramor/redmine_docker"
+
 USER root
 
 RUN groupadd -g 500 service \
