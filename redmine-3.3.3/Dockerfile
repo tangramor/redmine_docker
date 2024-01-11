@@ -21,7 +21,8 @@ RUN groupadd -g 500 service \
 
 USER service
 
-ARG RUBYMIRROR=""
+ARG RUBY_MIRROR=""
+ARG GEM_MIRROR=""
 
 ENV RUBY_VERSION=2.3.8
 ENV REDMINE_VERSION=3.3.3
@@ -33,7 +34,7 @@ RUN gpg2 --keyserver hkp://keyserver.ubuntu.com --recv-keys 409B6B1796C275462A17
     && curl -sSL https://get.rvm.io | bash -s stable \
     && source ~/.bashrc \
     && source ~/.bash_profile \
-    && if [ "$RUBYMIRROR" != "" ]; then echo 'ruby_url='${RUBYMIRROR} > ~/.rvm/user/db; fi \
+    && if [ "$RUBY_MIRROR" != "" ]; then echo 'ruby_url='${RUBY_MIRROR} > ~/.rvm/user/db; fi \
     && rvm install ${RUBY_VERSION} --disable-binary \
     && rvm use ${RUBY_VERSION} --default \
     && echo 'export GEM_HOME="$HOME/.rvm/gems/ruby-${RUBY_VERSION}"' >> ~/.bash_profile \
@@ -54,6 +55,8 @@ USER service
 
 COPY Gemfile.lock /var/www/html/redmine/
 
+ENV RAILS_ENV production
+
 RUN echo 'export PATH=$PATH:/home/service/.rvm/rubies/ruby-${RUBY_VERSION}/bin:/home/service/.rvm/gems/ruby-${RUBY_VERSION}/bin' >> ~/.bash_profile \
     && source ~/.bashrc \
     && source ~/.bash_profile \
@@ -61,6 +64,7 @@ RUN echo 'export PATH=$PATH:/home/service/.rvm/rubies/ruby-${RUBY_VERSION}/bin:/
     && gem install bundler -v ${BUNDLE_VERSION} \
     && rvm repair wrappers \
     && sudo chown service:service Gemfile.lock \
+    && if [ "$GEM_MIRROR" != "" ]; then echo ':ssl_verify_mode: 0' >> ~/.gemrc && bundle config mirror.https://rubygems.org ${GEM_MIRROR}; fi \
     && bundle config set --local without 'development test' \
     && bundle install \
     && gem install mysql2 -v ${GEM_MYSQL2_VERSION} \
