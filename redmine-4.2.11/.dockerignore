@@ -1,0 +1,7 @@
+.bundle
+.git
+.gitignore
+.hgignore
+Dockerfile
+docker_build.sh
+docker-compose.yml
