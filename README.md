@@ -98,7 +98,7 @@ $ source ~/.bash_profile
 
 # unzip plugin archive
 $ cd plugins
-$ unzip redmine_agile-x_x_x-light.zip
+$ unzip -a redmine_agile-x_x_x-light.zip
 
 # Install required gems
 $ cd ..
