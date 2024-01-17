@@ -1,1 +1,3 @@
 secret_token.rb
+init_db.lock
+init_secret.lock

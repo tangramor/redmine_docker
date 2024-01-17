@@ -13,7 +13,8 @@ RUN groupadd -g 500 service \
         libffi-devel libtool patch readline-devel ruby \
         sqlite-devel zlib-devel glibc-headers \
         glibc-devel openssl-devel ImageMagick-devel \
-        libcurl-devel mysql-devel git \
+        libcurl-devel mysql-devel git ghostscript unzip \
+    && yum clean all \
     && chmod 740 /etc/sudoers \
     && echo "service    ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
     && chmod 440 /etc/sudoers \
@@ -27,7 +28,6 @@ ARG GEM_MIRROR=""
 ENV RUBY_VERSION=2.7.8
 ENV REDMINE_VERSION=4.2.11
 ENV BUNDLE_VERSION=2.4.22
-#ENV GEM_MYSQL2_VERSION=0.3.21
 ENV GEM_PASSENGER_VERSION=6.0.19
 
 RUN gpg2 --keyserver hkp://keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB \
@@ -37,8 +37,8 @@ RUN gpg2 --keyserver hkp://keyserver.ubuntu.com --recv-keys 409B6B1796C275462A17
     && if [ "$RUBY_MIRROR" != "" ]; then echo 'ruby_url='${RUBY_MIRROR} > ~/.rvm/user/db; fi \
     && rvm install ${RUBY_VERSION} --disable-binary \
     && rvm use ${RUBY_VERSION} --default \
-    && echo 'export GEM_HOME="$HOME/.rvm/gems/ruby-${RUBY_VERSION}"' >> ~/.bash_profile \
-    && echo 'export GEM_PATH="$HOME/.rvm/gems/ruby-${RUBY_VERSION}:$HOME/.rvm/gems/ruby-${RUBY_VERSION}@global"' >> ~/.bash_profile
+    && echo 'export GEM_HOME="$HOME/.rvm/gems/ruby-'${RUBY_VERSION}'"' >> ~/.bash_profile \
+    && echo 'export GEM_PATH="$HOME/.rvm/gems/ruby-'${RUBY_VERSION}':$HOME/.rvm/gems/ruby-'${RUBY_VERSION}'@global"' >> ~/.bash_profile
 
 WORKDIR /var/www/html/redmine
 
@@ -57,7 +57,9 @@ COPY Gemfile.local /var/www/html/redmine/
 
 ENV RAILS_ENV production
 
-RUN echo 'export PATH=$PATH:/home/service/.rvm/rubies/ruby-${RUBY_VERSION}/bin:/home/service/.rvm/gems/ruby-${RUBY_VERSION}/bin' >> ~/.bash_profile \
+RUN sed -i "s/ruby .*$/ruby '"${RUBY_VERSION}"'/" Gemfile \
+    && echo 'export RUBY_VERSION='${RUBY_VERSION} >> ~/.bash_profile \
+    && echo 'export PATH=/home/service/.rvm/gems/ruby-'${RUBY_VERSION}'/bin:$PATH:/home/service/.rvm/rubies/ruby-'${RUBY_VERSION}'/bin' >> ~/.bash_profile \
     && source ~/.bashrc \
     && source ~/.bash_profile \
     && ruby -v \
@@ -68,8 +70,8 @@ RUN echo 'export PATH=$PATH:/home/service/.rvm/rubies/ruby-${RUBY_VERSION}/bin:/
     && bundle config set --local without 'development test' \
     && bundle install \
     && gem install passenger -v ${GEM_PASSENGER_VERSION} \
-    && echo 'export SECRET_KEY_BASE='$(bundle exec rake secret RAILS_ENV=production) >> ~/.bash_profile \
-    && rvmsudo passenger-install-nginx-module --auto --auto-download --prefix=/opt/nginx
+    && rvmsudo passenger-install-nginx-module --auto --auto-download --prefix=/opt/nginx \
+    && if [ "$GEM_MIRROR" != "" ]; then bundle config unset mirror.https://rubygems.org/; fi
 
 COPY nginx.conf /opt/nginx/conf/nginx.conf
 COPY start.sh /start.sh

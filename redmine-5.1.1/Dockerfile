@@ -13,8 +13,9 @@ RUN groupadd -g 500 service \
         libffi-devel libtool patch readline-devel ruby \
         sqlite-devel zlib-devel glibc-headers \
         glibc-devel openssl-devel ImageMagick-devel \
-        libcurl-devel git procps \
+        libcurl-devel git procps ghostscript unzip \
     && dnf --enablerepo=crb install -y mysql-devel libyaml-devel \
+    && yum clean all && dnf clean all \
     && chmod 740 /etc/sudoers \
     && echo "service    ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
     && chmod 440 /etc/sudoers \
@@ -57,7 +58,9 @@ COPY Gemfile.local /var/www/html/redmine/
 
 ENV RAILS_ENV production
 
-RUN echo 'export PATH=$PATH:/home/service/.rvm/rubies/ruby-'${RUBY_VERSION}'/bin:/home/service/.rvm/gems/ruby-'${RUBY_VERSION}'/bin' >> ~/.bash_profile \
+RUN sed -i "s/ruby .*$/ruby '"${RUBY_VERSION}"'/" Gemfile \
+    && echo 'export RUBY_VERSION='${RUBY_VERSION} >> ~/.bash_profile \
+    && echo 'export PATH=/home/service/.rvm/gems/ruby-'${RUBY_VERSION}'/bin:$PATH:/home/service/.rvm/rubies/ruby-'${RUBY_VERSION}'/bin' >> ~/.bash_profile \
     && source ~/.bashrc \
     && source ~/.bash_profile \
     && ruby -v \
@@ -68,8 +71,8 @@ RUN echo 'export PATH=$PATH:/home/service/.rvm/rubies/ruby-'${RUBY_VERSION}'/bin
     && bundle config set --local without 'development test' \
     && bundle install \
     && gem install passenger -v ${GEM_PASSENGER_VERSION} \
-    && echo 'export SECRET_KEY_BASE='$(bundle exec rake secret RAILS_ENV=production) >> ~/.bash_profile \
-    && rvmsudo passenger-install-nginx-module --auto --auto-download --prefix=/opt/nginx
+    && rvmsudo passenger-install-nginx-module --auto --auto-download --prefix=/opt/nginx \
+    && if [ "$GEM_MIRROR" != "" ]; then bundle config unset mirror.https://rubygems.org/; fi
 
 COPY nginx.conf /opt/nginx/conf/nginx.conf
 COPY start.sh /start.sh

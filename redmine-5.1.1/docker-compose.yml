@@ -21,7 +21,7 @@ services:
     depends_on:
       - mysql
     healthcheck:
-      test: ["CMD", "test", "-f", "/var/www/html/redmine/init_db.lock"]
+      test: ["CMD", "test", "-f", "/var/www/html/redmine/config/init_db.lock"]
 
   mysql:
     image: 'mysql:8'
