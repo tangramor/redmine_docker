@@ -48,7 +48,7 @@ Then you can use `docker compose up -d` to launch the containers. The scripts wi
 
 ***Note***: If you don't want to run `rake db:migrage` but import database by yourself, create an empty file `config/init_db.lock`.
 
-Once the setup process is done, you can use `docker ps` or `docker compose ps` command to check the `healthy` status of the containers. It cost about 2 minutes.
+Once the setup process is done, you can use `docker ps` or `docker compose ps` command to check the `healthy` status of the containers. It costs about 2 minutes.
 
 
 ### Load database default dataset
@@ -87,7 +87,7 @@ docker exec -i redmine bash -c /start.sh
 
 ### Add Plugins
 
-For example, install [redmine_agile](https://www.redmineup.com/pages/plugins/agile). You registered an email to get the download link for the free edition and downloaded redmine_agile-x_x_x-light.zip. Copy this file to `/home/redmine/plugins` (in my case), and execute following commands:
+For example, install [redmine_agile](https://www.redmineup.com/pages/plugins/agile). You registered an email to get the download link for the free edition and downloaded **redmine_agile-x_x_x-light.zip**. Copy this file to `/home/redmine/plugins` (in my case), and execute following commands:
 
 ```bash
 # enter container
