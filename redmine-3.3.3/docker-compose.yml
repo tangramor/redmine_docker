@@ -5,6 +5,8 @@ services:
     image: tangramor/redmine:3.3.3
     container_name: redmine
     restart: unless-stopped
+    environment:
+      - LOCALE=zh_CN.UTF-8
     ports:
       - '80:80'
       - '443:443'

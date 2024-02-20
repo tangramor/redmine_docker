@@ -7,13 +7,17 @@ USER root
 
 RUN groupadd -g 500 service \
     && useradd -g service -u 500 service \
+    && rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 \
     && yum install -y epel-release \
+    && yum-config-manager --setopt override_install_langs= --save \
     && yum install -y wget subversion sudo bzip2 make \
         which patch autoconf automake bison gcc-c++ \
         libffi-devel libtool patch readline-devel ruby \
         sqlite-devel zlib-devel glibc-headers \
         glibc-devel openssl-devel ImageMagick-devel \
         libcurl-devel mysql-devel git ghostscript unzip \
+        kde-l10n-Chinese telnet \
+    && yum reinstall -y glibc-common \
     && yum clean all \
     && chmod 740 /etc/sudoers \
     && echo "service    ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
@@ -79,4 +83,4 @@ COPY start.sh /start.sh
 EXPOSE 443 80
 
 USER root
-CMD ["/bin/bash", "-c", "/opt/nginx/sbin/nginx -c /opt/nginx/conf/nginx.conf;chmod +x /start.sh && /start.sh;tail -f /opt/nginx/logs/*.log"]
+CMD ["/bin/bash", "-c", "chmod +x /start.sh && /start.sh;/opt/nginx/sbin/nginx -c /opt/nginx/conf/nginx.conf;tail -f /opt/nginx/logs/*.log"]

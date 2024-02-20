@@ -37,6 +37,8 @@ Please edit database **user/password** in `docker-compose.yml`, `config/database
 - MySQL `root` user: default password `Password1`
 - MySQL `redmine` user: default password `Password2`
 
+For version **3.3.3** or **4.2.11**, please edit the **LOCALE** environment variable in `docker-compose.yml` to support different languages, such as `LOCALE=zh_CN.UTF-8`.
+
 Please edit the volumes mapping in `docker-compose.yml`.
 
 - Redmine data: `/home/redmine`
