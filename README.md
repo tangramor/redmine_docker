@@ -7,11 +7,11 @@ Support MySQL for now.
 
 ## Versions/Tags
 
-### Redmine 5.1.1 (tag [5.1.1](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.1), [latest](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.1) )
+### Redmine 5.1.2 (tag [5.1.2](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x), [latest](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x) )
 
 Based on **AlmaLinux 9** image. Ruby version **3.2.2**.
 
-### Redmine 5.0.7 (tag [5.0.7](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.0.7) )
+### Redmine 5.0.8 (tag [5.0.8](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.0.x) )
 
 Based on **AlmaLinux 9** image. Ruby version **3.1.4**.
 

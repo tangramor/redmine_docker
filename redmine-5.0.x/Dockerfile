@@ -14,7 +14,7 @@ RUN groupadd -g 500 service \
         sqlite-devel zlib-devel glibc-headers \
         glibc-devel openssl-devel ImageMagick-devel \
         libcurl-devel git procps ghostscript unzip \
-    && dnf --enablerepo=crb install -y mysql-devel libyaml-devel \
+    && dnf --enablerepo=crb install -y mysql-devel \
     && yum clean all && dnf clean all \
     && chmod 740 /etc/sudoers \
     && echo "service    ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
@@ -26,8 +26,8 @@ USER service
 ARG RUBY_MIRROR=""
 ARG GEM_MIRROR=""
 
-ENV RUBY_VERSION=3.2.2
-ENV REDMINE_VERSION=5.1.1
+ENV RUBY_VERSION=3.1.4
+ENV REDMINE_VERSION=5.0.8
 ENV BUNDLE_VERSION=2.5.4
 ENV GEM_PASSENGER_VERSION=6.0.19
 
