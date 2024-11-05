@@ -30,7 +30,7 @@ Redmine plugins:
   no plugin installed
 ```
 
-### Redmine 5.0.8 (tag [5.0.8](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.0.x) )
+### Redmine 5.0.10 (tag [5.0.8](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.0.x) )
 
 Based on **AlmaLinux 9** image. Ruby version **3.1.4**.
 
@@ -160,7 +160,7 @@ $ touch tmp/restart.txt
 
 ## 版本/标签
 
-### Redmine 5.1.2 (标签 [5.1.4](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x), [latest](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x) )
+### Redmine 5.1.4 (标签 [5.1.4](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x), [latest](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x) )
 
 基于 **AlmaLinux 9** 镜像。Ruby 版本 **3.2.6*。
 
@@ -183,7 +183,7 @@ Redmine plugins:
   no plugin installed
 ```
 
-### Redmine 5.0.8 (标签 [5.0.8](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.0.x) )
+### Redmine 5.0.10 (标签 [5.0.8](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.0.x) )
 
 基于 **AlmaLinux 9** 镜像。Ruby 版本 **3.1.4**。
 
