@@ -7,13 +7,51 @@ Support MySQL for now.
 
 ## Versions/Tags
 
-### Redmine 5.1.2 (tag [5.1.2](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x), [latest](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x) )
+### Redmine 5.1.4 (tag [5.1.4](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x), [latest](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x) )
 
-Based on **AlmaLinux 9** image. Ruby version **3.2.2**.
+Based on **AlmaLinux 9** image. Ruby version **3.2.6**.
+
+```
+Environment:
+  Redmine version                5.1.4.stable
+  Ruby version                   3.2.6-p234 (2024-10-30) [x86_64-linux]
+  Rails version                  6.1.7.10
+  Environment                    production
+  Database adapter               Mysql2
+  Mailer queue                   ActiveJob::QueueAdapters::AsyncAdapter
+  Mailer delivery                smtp
+Redmine settings:
+  Redmine theme                  Default
+SCM:
+  Subversion                     1.14.1
+  Git                            2.43.5
+  Filesystem                     
+Redmine plugins:
+  no plugin installed
+```
 
 ### Redmine 5.0.8 (tag [5.0.8](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.0.x) )
 
 Based on **AlmaLinux 9** image. Ruby version **3.1.4**.
+
+```
+Environment:
+  Redmine version                5.0.10.stable
+  Ruby version                   3.1.6-p260 (2024-05-29) [x86_64-linux]
+  Rails version                  6.1.7.10
+  Environment                    production
+  Database adapter               Mysql2
+  Mailer queue                   ActiveJob::QueueAdapters::AsyncAdapter
+  Mailer delivery                smtp
+Redmine settings:
+  Redmine theme                  Default
+SCM:
+  Subversion                     1.14.1
+  Git                            2.43.5
+  Filesystem                     
+Redmine plugins:
+  no plugin installed
+```
 
 ### Redmine 4.2.11 (tag [4.2.11](https://github.com/tangramor/redmine_docker/tree/master/redmine-4.2.11) )
 
@@ -122,13 +160,51 @@ $ touch tmp/restart.txt
 
 ## 版本/标签
 
-### Redmine 5.1.2 (标签 [5.1.2](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x), [latest](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x) )
+### Redmine 5.1.2 (标签 [5.1.4](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x), [latest](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x) )
 
-基于 **AlmaLinux 9** 镜像。Ruby 版本 **3.2.2**。
+基于 **AlmaLinux 9** 镜像。Ruby 版本 **3.2.6*。
+
+```
+Environment:
+  Redmine version                5.1.4.stable
+  Ruby version                   3.2.6-p234 (2024-10-30) [x86_64-linux]
+  Rails version                  6.1.7.10
+  Environment                    production
+  Database adapter               Mysql2
+  Mailer queue                   ActiveJob::QueueAdapters::AsyncAdapter
+  Mailer delivery                smtp
+Redmine settings:
+  Redmine theme                  Default
+SCM:
+  Subversion                     1.14.1
+  Git                            2.43.5
+  Filesystem                     
+Redmine plugins:
+  no plugin installed
+```
 
 ### Redmine 5.0.8 (标签 [5.0.8](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.0.x) )
 
 基于 **AlmaLinux 9** 镜像。Ruby 版本 **3.1.4**。
+
+```
+Environment:
+  Redmine version                5.0.10.stable
+  Ruby version                   3.1.6-p260 (2024-05-29) [x86_64-linux]
+  Rails version                  6.1.7.10
+  Environment                    production
+  Database adapter               Mysql2
+  Mailer queue                   ActiveJob::QueueAdapters::AsyncAdapter
+  Mailer delivery                smtp
+Redmine settings:
+  Redmine theme                  Default
+SCM:
+  Subversion                     1.14.1
+  Git                            2.43.5
+  Filesystem                     
+Redmine plugins:
+  no plugin installed
+```
 
 ### Redmine 4.2.11 (标签 [4.2.11](https://github.com/tangramor/redmine_docker/tree/master/redmine-4.2.11) )
 

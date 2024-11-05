@@ -26,10 +26,10 @@ USER service
 ARG RUBY_MIRROR=""
 ARG GEM_MIRROR=""
 
-ENV RUBY_VERSION=3.1.4
-ENV REDMINE_VERSION=5.0.8
-ENV BUNDLE_VERSION=2.5.4
-ENV GEM_PASSENGER_VERSION=6.0.19
+ENV RUBY_VERSION=3.1.6
+ENV REDMINE_VERSION=5.0.10
+ENV BUNDLE_VERSION=2.5.22
+ENV GEM_PASSENGER_VERSION=6.0.22
 
 RUN gpg2 --keyserver hkp://keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB \
     && curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles \
@@ -56,7 +56,7 @@ USER service
 
 COPY Gemfile.local /var/www/html/redmine/
 
-ENV RAILS_ENV production
+ENV RAILS_ENV=production
 
 RUN sed -i "s/ruby .*$/ruby '"${RUBY_VERSION}"'/" Gemfile \
     && echo 'export RUBY_VERSION='${RUBY_VERSION} >> ~/.bash_profile \
@@ -80,4 +80,4 @@ COPY start.sh /start.sh
 EXPOSE 443 80
 
 USER root
-CMD ["/bin/bash", "-c", "/opt/nginx/sbin/nginx -c /opt/nginx/conf/nginx.conf;chmod +x /start.sh && /start.sh;tail -f /opt/nginx/logs/*.log"]
+CMD ["/bin/bash", "-c", "/opt/nginx/sbin/nginx -c /opt/nginx/conf/nginx.conf && chmod +x /start.sh && /start.sh && tail -f /opt/nginx/logs/*.log"]

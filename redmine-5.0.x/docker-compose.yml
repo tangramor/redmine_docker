@@ -1,8 +1,6 @@
-version: '3'
-
 services:
   redmine:
-    image: tangramor/redmine:5.0.8
+    image: tangramor/redmine:5.0.10
     container_name: redmine
     restart: unless-stopped
     ports:
@@ -20,6 +18,8 @@ services:
       - redmine
     depends_on:
       - mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 'Password1'
     healthcheck:
       test: ["CMD", "test", "-f", "/var/www/html/redmine/config/init_db.lock"]
 
@@ -38,7 +38,7 @@ services:
     ports:
       - '3306:3306'
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping"]
+      test: ["CMD", "mysqladmin", "ping", "-uroot", "-pPassword1"]
 
 networks:
   redmine:
