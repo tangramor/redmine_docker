@@ -5,23 +5,23 @@ chown -R service:service /var/www/html/redmine
 if [ ! -f /var/www/html/redmine/config/init_db.lock ]; then
     yum install -y mysql
 
-    HOST=mysql    # MySQL 主机
-    USER=root # MySQL 用户名
-    PASSWORD=$MYSQL_ROOT_PASSWORD # MySQL 密码
-    DB_NAME=mysql # 数据库名（可以选择性使用）
+    HOST=mysql  # MySQL Host
+    USER=root   # MySQL User
+    PASSWORD=$MYSQL_ROOT_PASSWORD # MySQL Password
+    DB_NAME=mysql # MySQL Database Name
 
-    TIMEOUT=30          # 超时时间（秒）
-    WAIT_INTERVAL=3     # 每次检查的间隔（秒）
+    TIMEOUT=30          # Timeout (seconds)
+    WAIT_INTERVAL=3     # Wait time between each check (seconds)
 
     elapsed_time=0
 
     while ! mysql -h "$HOST" -u"$USER" -p"$PASSWORD" -e "USE $DB_NAME;" 2>/dev/null; do
         if [ $elapsed_time -ge $TIMEOUT ]; then
-            echo "错误：无法连接到 MySQL {$HOST}，已超过 ${TIMEOUT} 秒超时限制。"
+            echo "Error: Cannot connect to MySQL server {$HOST}，exceeds ${TIMEOUT} seconds limit"
             exit 1
         fi
 
-        echo "连接失败，等待 ${WAIT_INTERVAL} 秒后重试..."
+        echo "Connection failed, wait ${WAIT_INTERVAL} seconds to retry..."
         sleep $WAIT_INTERVAL
         elapsed_time=$((elapsed_time + WAIT_INTERVAL))
     done
