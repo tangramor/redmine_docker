@@ -30,9 +30,9 @@ Redmine plugins:
   no plugin installed
 ```
 
-### Redmine 5.0.10 (tag [5.0.8](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.0.x) )
+### Redmine 5.0.10 (tag [5.0.10](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.0.x) )
 
-Based on **AlmaLinux 9** image. Ruby version **3.1.4**.
+Based on **AlmaLinux 9** image. Ruby version **3.1.6**.
 
 ```
 Environment:
@@ -183,9 +183,9 @@ Redmine plugins:
   no plugin installed
 ```
 
-### Redmine 5.0.10 (标签 [5.0.8](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.0.x) )
+### Redmine 5.0.10 (标签 [5.0.10](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.0.x) )
 
-基于 **AlmaLinux 9** 镜像。Ruby 版本 **3.1.4**。
+基于 **AlmaLinux 9** 镜像。Ruby 版本 **3.1.6**。
 
 ```
 Environment:
