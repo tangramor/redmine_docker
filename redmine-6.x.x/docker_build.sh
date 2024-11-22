@@ -2,5 +2,6 @@
 
 docker build --build-arg RUBY_MIRROR="https://cache.ruby-china.com/pub/ruby" \
     --build-arg GEM_MIRROR="https://gems.ruby-china.com" \
-    -t tangramor/redmine:5.1.4 .
+    -t tangramor/redmine:6.0.1 .
 
+docker tag tangramor/redmine:6.0.1 tangramor/redmine

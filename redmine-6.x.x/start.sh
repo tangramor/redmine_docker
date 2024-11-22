@@ -2,6 +2,12 @@
 
 chown -R service:service /var/www/html/redmine
 
+if [ ! -f /var/www/html/redmine/config/init_secret.lock ]; then
+    su -c 'source ~/.bash_profile && cd /var/www/html/redmine && bundle exec rake generate_secret_token RAILS_ENV=production' service
+    echo 'export SECRET_KEY_BASE='$(grep "secret_key_base" /var/www/html/redmine/config/initializers/secret_token.rb | cut -d "'" -f 2) >> /home/service/.bash_profile
+    touch /var/www/html/redmine/config/init_secret.lock
+fi
+
 if [ ! -f /var/www/html/redmine/config/init_db.lock ]; then
     yum install -y mysql
 
@@ -31,10 +37,4 @@ if [ ! -f /var/www/html/redmine/config/init_db.lock ]; then
     touch /var/www/html/redmine/config/init_db.lock
     
     yum remove -y mysql
-fi
-
-if [ ! -f /var/www/html/redmine/config/init_secret.lock ]; then
-    echo 'export SECRET_KEY_BASE='$(su -c 'source ~/.bash_profile && cd /var/www/html/redmine && bundle exec rake secret RAILS_ENV=production' service) >> /home/service/.bash_profile
-    #su -c 'source ~/.bash_profile && RAILS_ENV=production bundle exec rake generate_secret_token' service
-    touch /var/www/html/redmine/config/init_secret.lock
 fi

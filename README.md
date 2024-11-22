@@ -7,7 +7,30 @@ Support MySQL for now.
 
 ## Versions/Tags
 
-### Redmine 5.1.4 (tag [5.1.4](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x), [latest](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x) )
+### Redmine 6.0.1 (tag [6.0.1](https://github.com/tangramor/redmine_docker/tree/master/redmine-6.x.x), [latest](https://github.com/tangramor/redmine_docker/tree/master/redmine-6.x.x) )
+
+Based on **AlmaLinux 9** image. Ruby version **3.3.6**.
+
+```
+Environment:
+  Redmine version                6.0.1.stable
+  Ruby version                   3.3.6-p108 (2024-11-05) [x86_64-linux]
+  Rails version                  7.2.2
+  Environment                    production
+  Database adapter               Mysql2
+  Mailer queue                   ActiveJob::QueueAdapters::AsyncAdapter
+  Mailer delivery                smtp
+Redmine settings:
+  Redmine theme                  Default
+SCM:
+  Subversion                     1.14.1
+  Git                            2.43.5
+  Filesystem                     
+Redmine plugins:
+  no plugin installed
+```
+
+### Redmine 5.1.4 (tag [5.1.4](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x) )
 
 Based on **AlmaLinux 9** image. Ruby version **3.2.6**.
 
@@ -159,6 +182,29 @@ $ touch tmp/restart.txt
 目前仅支持 MySQL。
 
 ## 版本/标签
+
+### Redmine 6.0.1 (标签 [6.0.1](https://github.com/tangramor/redmine_docker/tree/master/redmine-6.x.x), [latest](https://github.com/tangramor/redmine_docker/tree/master/redmine-6.x.x) )
+
+基于 **AlmaLinux 9** 镜像。Ruby 版本 **3.3.6*。
+
+```
+Environment:
+  Redmine version                6.0.1.stable
+  Ruby version                   3.3.6-p108 (2024-11-05) [x86_64-linux]
+  Rails version                  7.2.2
+  Environment                    production
+  Database adapter               Mysql2
+  Mailer queue                   ActiveJob::QueueAdapters::AsyncAdapter
+  Mailer delivery                smtp
+Redmine settings:
+  Redmine theme                  Default
+SCM:
+  Subversion                     1.14.1
+  Git                            2.43.5
+  Filesystem                     
+Redmine plugins:
+  no plugin installed
+```
 
 ### Redmine 5.1.4 (标签 [5.1.4](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x), [latest](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x) )
 
