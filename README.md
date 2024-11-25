@@ -185,7 +185,7 @@ $ touch tmp/restart.txt
 
 ### Redmine 6.0.1 (标签 [6.0.1](https://github.com/tangramor/redmine_docker/tree/master/redmine-6.x.x), [latest](https://github.com/tangramor/redmine_docker/tree/master/redmine-6.x.x) )
 
-基于 **AlmaLinux 9** 镜像。Ruby 版本 **3.3.6*。
+基于 **AlmaLinux 9** 镜像。Ruby 版本 **3.3.6** 。
 
 ```
 Environment:
@@ -208,7 +208,7 @@ Redmine plugins:
 
 ### Redmine 5.1.4 (标签 [5.1.4](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x), [latest](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x) )
 
-基于 **AlmaLinux 9** 镜像。Ruby 版本 **3.2.6*。
+基于 **AlmaLinux 9** 镜像。Ruby 版本 **3.2.6** 。
 
 ```
 Environment:
@@ -231,7 +231,7 @@ Redmine plugins:
 
 ### Redmine 5.0.10 (标签 [5.0.10](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.0.x) )
 
-基于 **AlmaLinux 9** 镜像。Ruby 版本 **3.1.6**。
+基于 **AlmaLinux 9** 镜像。Ruby 版本 **3.1.6** 。
 
 ```
 Environment:
@@ -254,13 +254,13 @@ Redmine plugins:
 
 ### Redmine 4.2.11 (标签 [4.2.11](https://github.com/tangramor/redmine_docker/tree/master/redmine-4.2.11) )
 
-基于 **CentOS 7** 镜像。Ruby 版本 **2.7.8**。
+基于 **CentOS 7** 镜像。Ruby 版本 **2.7.8** 。
 
 ### Redmine 3.3.3 (标签 [3.3.3](https://github.com/tangramor/redmine_docker/tree/master/redmine-3.3.3) )
 
 这个旧版本在我们公司中使用，docker脚本最初是针对它开发的。
 
-基于 **CentOS 7** 镜像。Ruby 版本 **2.3.8**。
+基于 **CentOS 7** 镜像。Ruby 版本 **2.3.8** 。
 
 您需要注意对于 MySQL 5.6 的启动选项 `--innodb-large-prefix=ON --innodb-file-format=Barracuda`。如果没有这些选项，数据库迁移将失败。
 
