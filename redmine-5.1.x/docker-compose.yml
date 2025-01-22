@@ -1,6 +1,6 @@
 services:
   redmine:
-    image: tangramor/redmine:5.1.4
+    image: tangramor/redmine:5.1.5
     container_name: redmine
     restart: unless-stopped
     ports:

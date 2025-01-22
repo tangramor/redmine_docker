@@ -2,6 +2,9 @@
 
 chown -R service:service /var/www/html/redmine
 
+sed -i 's/ruby-[0-9\.]+/ruby-${RUBY_VERSION}/g' /opt/nginx/conf/nginx.conf
+sed -i 's/passenger-[0-9\.]+/passenger-${GEM_PASSENGER_VERSION}/g' /opt/nginx/conf/nginx.conf
+
 if [ ! -f /var/www/html/redmine/config/init_secret.lock ]; then
     echo 'export SECRET_KEY_BASE='$(su -c 'source ~/.bash_profile && cd /var/www/html/redmine && bundle exec rake secret RAILS_ENV=production' service) >> /home/service/.bash_profile
     touch /var/www/html/redmine/config/init_secret.lock

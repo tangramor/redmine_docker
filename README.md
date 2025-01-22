@@ -7,14 +7,14 @@ Support MySQL for now.
 
 ## Versions/Tags
 
-### Redmine 6.0.1 (tag [6.0.1](https://github.com/tangramor/redmine_docker/tree/master/redmine-6.x.x), [latest](https://github.com/tangramor/redmine_docker/tree/master/redmine-6.x.x) )
+### Redmine 6.0.2 (tag [6.0.2](https://github.com/tangramor/redmine_docker/tree/master/redmine-6.x.x), [latest](https://github.com/tangramor/redmine_docker/tree/master/redmine-6.x.x) )
 
-Based on **AlmaLinux 9** image. Ruby version **3.3.6**.
+Based on **AlmaLinux 9** image. Ruby version **3.3.7**.
 
 ```
 Environment:
-  Redmine version                6.0.1.stable
-  Ruby version                   3.3.6-p108 (2024-11-05) [x86_64-linux]
+  Redmine version                6.0.2.stable
+  Ruby version                   3.3.7-p123 (2025-01-15) [x86_64-linux]
   Rails version                  7.2.2
   Environment                    production
   Database adapter               Mysql2
@@ -30,13 +30,13 @@ Redmine plugins:
   no plugin installed
 ```
 
-### Redmine 5.1.4 (tag [5.1.4](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x) )
+### Redmine 5.1.5 (tag [5.1.5](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x) )
 
 Based on **AlmaLinux 9** image. Ruby version **3.2.6**.
 
 ```
 Environment:
-  Redmine version                5.1.4.stable
+  Redmine version                5.1.5.stable
   Ruby version                   3.2.6-p234 (2024-10-30) [x86_64-linux]
   Rails version                  6.1.7.10
   Environment                    production
@@ -183,14 +183,14 @@ $ touch tmp/restart.txt
 
 ## 版本/标签
 
-### Redmine 6.0.1 (标签 [6.0.1](https://github.com/tangramor/redmine_docker/tree/master/redmine-6.x.x), [latest](https://github.com/tangramor/redmine_docker/tree/master/redmine-6.x.x) )
+### Redmine 6.0.2 (标签 [6.0.2](https://github.com/tangramor/redmine_docker/tree/master/redmine-6.x.x), [latest](https://github.com/tangramor/redmine_docker/tree/master/redmine-6.x.x) )
 
-基于 **AlmaLinux 9** 镜像。Ruby 版本 **3.3.6** 。
+基于 **AlmaLinux 9** 镜像。Ruby 版本 **3.3.7** 。
 
 ```
 Environment:
-  Redmine version                6.0.1.stable
-  Ruby version                   3.3.6-p108 (2024-11-05) [x86_64-linux]
+  Redmine version                6.0.2.stable
+  Ruby version                   3.3.7-p123 (2025-01-15) [x86_64-linux]
   Rails version                  7.2.2
   Environment                    production
   Database adapter               Mysql2
@@ -206,13 +206,13 @@ Redmine plugins:
   no plugin installed
 ```
 
-### Redmine 5.1.4 (标签 [5.1.4](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x), [latest](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x) )
+### Redmine 5.1.5 (标签 [5.1.5](https://github.com/tangramor/redmine_docker/tree/master/redmine-5.1.x) )
 
 基于 **AlmaLinux 9** 镜像。Ruby 版本 **3.2.6** 。
 
 ```
 Environment:
-  Redmine version                5.1.4.stable
+  Redmine version                5.1.5.stable
   Ruby version                   3.2.6-p234 (2024-10-30) [x86_64-linux]
   Rails version                  6.1.7.10
   Environment                    production
